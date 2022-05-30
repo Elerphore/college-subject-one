@@ -1,0 +1,39 @@
+header{
+    height: 70px;
+}
+header img{
+    width: 100px;
+    height: 70px;
+}
+
+header li {
+    display: inline; 
+    margin-right: 30px; 
+    border: 1px ; 
+    padding: 3px; 
+    font-size: 20px;
+   }
+header li:hover{
+    color: #0000CD;
+}
+.js-menu{
+    margin-left: 200px;
+    margin-top: -50px;
+}
+a.button {
+  display: inline-block;
+  background: #2196f3;
+  color: #fff;
+  padding: 12px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: Tahoma;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 100;
+  margin-left: 30px;
+}
+.knopka{
+    margin-left: 1200px;
+    margin-top: -50px;
+}
