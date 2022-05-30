@@ -2,22 +2,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style/price.css">
+	<link rel="stylesheet" type="text/css" href="assets/style/price.css">
 	<title></title>
 </head>
 <body>
 	<header>
-		<img src="img/2.png">
-		<ul class="js-menu">
-			<li class="glav"> <a href="index.html.php" >ГЛАВНАЯ</a></li>
-			<li class="usl"><a href="uslugi.html.php">УСЛУГИ</a></li>
-			<li class="cont"><a href="kontact.html.php">КОНТАКТЫ</a></li>
-			<li class="price"><a href="price.html.php">ПРАЙС</a></li>
-		</ul> 
-		<div class="knopka">
-		<a class="button" href="http://example.com" target="_blank">Войти</a>
-		<a class="button" href="http://example.com" target="_blank">Регистрация</a>
-	</div>
+        <?php include "./components/title_bar.php"?>
 	<section>
 	<h2>Маникюр</h2>
 <table class="ceny">
