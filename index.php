@@ -1,9 +1,19 @@
+<?php
+session_start();
+if(isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['name']);
+    unset($_SESSION['phone']);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="assets/style/index.css">
 	<title></title>
+    <script src="https://unpkg.com/vue@3"></script>
 </head>
 <body>
 	<header>

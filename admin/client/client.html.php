@@ -1,4 +1,4 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/admin/helpers.inc.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/helpers.inc.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -52,10 +52,9 @@
             <tr>
                 <td><?php echo htmlout($pro['name']); ?></td>
                 <td><?php echo htmlout($pro['surname']); ?></td>
-                <td><?php echo htmlout($pro['address']); ?></td>
-                <td><?php echo htmlout($pro['experience']); ?></td>
-                <td><?php echo htmlout($pro['id_schedule']); ?></td>
-                <td><?php echo htmlout($pro['id_specialties']); ?></td>
+                <td><?php echo htmlout($pro['login']); ?></td>
+                <td><?php echo htmlout($pro['phone']); ?></td>
+                <td><?php echo htmlout($pro['password']); ?></td>
                 <td>
                     <form action="?" method="POST">
                         <div>

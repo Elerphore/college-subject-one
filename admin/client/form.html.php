@@ -1,4 +1,4 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/admin/helpers.inc.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/helpers.inc.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,10 +38,9 @@
     <form action="?<?php htmlout($action); ?>" method="POST">
         <div><label for="name"> Имя: <input type="text" name="name" value="<?php htmlout($name); ?>"></label></div>
         <div><label for="surname">Фамилия: <input type="text" name="surname" value="<?php htmlout($surname); ?>"></label></div>
-        <div><label for="address">Логин: <input type="text" name="address" value="<?php htmlout($login); ?>"></label></div>
-        <div><label for="experience">Телефон: <input type="text" name="experience" value="<?php htmlout($phone); ?>"></label></div>
-        <div><label for="id_schedule">Пароль: <input type="text" name="id_schedule" value="<?php htmlout($password); ?>"></label></div>
-        <div><label for="id_specialties">Пароль: <input type="text" name="id_specialties" value="<?php htmlout($password); ?>"></label></div>
+        <div><label for="login">Логин: <input type="text" name="login" value="<?php htmlout($login); ?>"></label></div>
+        <div><label for="phone">Телефон: <input type="text" name="phone" value="<?php htmlout($phone); ?>"></label></div>
+        <div><label for="password">Пароль: <input type="text" name="password" value="<?php htmlout($password); ?>"></label></div>
         <br>
         <div>
             <input type="hidden" name="id" value="<?php htmlout($id);?>">
