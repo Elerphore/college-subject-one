@@ -7,8 +7,9 @@
 </head>
 <body>
 	<header><?php include "./components/title_bar.php"?></header>
-    <main class="main-block">
+    <main class="main-block mt-3">
         <button class="btn btn-primary float-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Записаться</button>
+
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
@@ -16,6 +17,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
+                <?php session_start();
+                if(isset($_SESSION['name']) and isset($_SESSION['phone'])) {
+                ?>
                 <form>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Специалист</label>
@@ -27,9 +31,14 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Записаться</button>
                 </form>
+                <?php } else { ?>
+
+                    <div class="d-grid gap-2">
+                        <a href="components/login.php" type="submit" class="btn btn-lg btn-primary">Авторизация</a>
+                    </div>
+                <?php } ?>
             </div>
         </div>
-
 
     <ul class="side-bar nav flex-column align-content-center">
         Услуги Салона:

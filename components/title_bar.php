@@ -19,11 +19,12 @@
             <?php } ?>
             <?php
         } else {
-            echo '<a class="btn btn-primary" href="/components/login.php" target="_blank">Войти</a>';
-            echo '<a class="btn btn-primary" href="/components/reg.php" target="_blank">Регистрация</a>';
-        }
         ?>
+            <a class="mr-5 btn btn-primary" href="/components/login.php">Войти</a>
+            <a class="btn btn-primary" href="/components/reg.php">Регистрация</a>
+        <?php } ?>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </div>

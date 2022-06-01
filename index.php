@@ -19,7 +19,7 @@ if(isset($_GET['logout'])) {
 <body>
 	<header>
         <?php include "./components/title_bar.php"?>
-<div class="header">
+<div class="header mt-3">
   <div class="info">
   <h3><a href="#category">В честь открытия салон красоты «Paradise» дарит первым 20 клиентам скидки!.</a></h3>
     <h1>ДОБРО ПОЖАЛОВАТЬ В PARADISE!</h1>	
@@ -39,5 +39,5 @@ if(isset($_GET['logout'])) {
 	<div class="fam">ИСП-19-2 Аблюзина Лилия</div>
 </footer>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
 </html>

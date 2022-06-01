@@ -7,7 +7,7 @@
 </head>
 <body>
 <header><?php include "./components/title_bar.php"?></header>
-<section>
+<section class="mt-3">
     <?php
     include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/admin/helpers.inc.php';

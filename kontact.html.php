@@ -9,7 +9,7 @@
 	<header>
         <?php include "./components/title_bar.php"?>
 </header>
-<div class="nesolestag-enadenud">
+<div class="nesolestag-enadenud mt-3">
   <h3 style="text-align:center;">Контакты</h3>
 
   <div class="ico-wrap"> <i class="fa fa-map-marker ico-contact"></i>
