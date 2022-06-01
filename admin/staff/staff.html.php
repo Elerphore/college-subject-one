@@ -24,7 +24,7 @@
                     <div class="col-xl-12">
                         <nav class="main-menu mobile-menu">
                             <ul>
-                                <li><a href="../../public/index.php">Главная</a></li>
+                                <li><a href="/admin/">Главная</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -37,25 +37,28 @@
 
 <!-- Конец заголовка -->
 
-<h1>Клиенты</h1>
+<h1>Сотрудники</h1>
 <div id="side_menu">
-    <p><a href="?add">Добавить клиентов</a></p>
+    <p><a href="?add">Добавить сотрудников</a></p>
     <table border="1" width="100%" cellpadding="5">
         <tr>
-            <td align="center">имя</td>
-            <td align="center">фамилия</td>
-            <td align="center">логин</td>
-            <td align="center">телефон</td>
-            <td align="center">пароль</td>
+            <td align="center">$name</td>
+            <td align="center">$surname</td>
+            <td align="center">$patronymic</td>
+            <td align="center">$phone</td>
+            <td align="center">$address</td>
+            <td align="center">$experience</td>
+            <td align="center">$id_schedule</td>
         </tr>
         <?php foreach($prod as $pro):  ?>
             <tr>
                 <td><?php echo htmlout($pro['name']); ?></td>
                 <td><?php echo htmlout($pro['surname']); ?></td>
+                <td><?php echo htmlout($pro['patronymic']); ?></td>
+                <td><?php echo htmlout($pro['phone']); ?></td>
                 <td><?php echo htmlout($pro['address']); ?></td>
                 <td><?php echo htmlout($pro['experience']); ?></td>
                 <td><?php echo htmlout($pro['id_schedule']); ?></td>
-                <td><?php echo htmlout($pro['id_specialties']); ?></td>
                 <td>
                     <form action="?" method="POST">
                         <div>

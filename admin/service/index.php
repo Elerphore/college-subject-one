@@ -3,30 +3,25 @@ if (isset($_GET['add'])) {
     $pageTitle = 'Клиенты ';
     $action = 'addform';
     $id = '';
-    $name = '';
-    $surname = '';
-    $login = '';
-    $phone   = '';
-    $password ='';
+    $title = '';
+    $cost = '';
+    $code = '';
     $button ='Добавить';
     include 'form.html.php';
     exit();
 }
 if (isset($_GET['addform'])) {
-    include $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/connect_db.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
         $sql = 'INSERT INTO service SET
-		    name = :name,
-		    surname = :surname,
-		    login = :login,
-		    phone  = :phone,
-        password =:password';
+		    Title = :title,
+		    Cost = :cost,
+		    Code = :code';
+
         $s = $pdo-> prepare($sql);
-        $s->bindValue(':name', $_POST['name']);
-        $s->bindValue(':surname', $_POST['surname']);
-        $s->bindValue(':login', $_POST['login']);
-        $s->bindValue(':phone', $_POST['phone']);
-        $s->bindValue(':password', $_POST['password']);
+        $s->bindValue(':title', $_POST['title']);
+        $s->bindValue(':cost', $_POST['cost']);
+        $s->bindValue(':code', $_POST['code']);
         $s->execute();
     }
     catch (PDOException $e) {
@@ -39,9 +34,9 @@ if (isset($_GET['addform'])) {
 }
 //Редактирование
 if(isset($_POST['action']) and $_POST['action'] == 'Редактировать') {
-    include $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/connect_db.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
-        $sql = 'SELECT id, name, surname, login, phone, password FROM service
+        $sql = 'SELECT id, Title, Cost, Code FROM service
 		    WHERE id = :id';
         $s = $pdo->prepare($sql);
         $s->bindValue(':id', $_POST['id']);
@@ -56,31 +51,26 @@ if(isset($_POST['action']) and $_POST['action'] == 'Редактировать')
     $pageTitle = 'Редактировать информацию.';
     $action = 'editform';
     $id = $row['id'];
-    $name = $row['name'];
-    $surname = $row['surname'];
-    $login = $row['login'];
-    $phone = $row['phone'];
-    $password = $row['password'];
+    $title = $row['title'];
+    $cost = $row['cost'];
+    $code = $row['code'];
     $button = 'Обновить информацию';
     include 'form.html.php';
     exit();
 }
 if (isset($_GET['editform'])) {
-    include $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/connect_db.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
         $sql = 'UPDATE service SET
-		    name = :name,
-        surname = :surname,
-		    login = :login,
-		    phone = :phone,
-        password = :password
+		    Title = :title,
+            Cost = :cost,
+		    Code = :code
 		    WHERE id = :id';
         $s = $pdo->prepare($sql);
-        $s->bindValue(':name', $_POST['name']);
-        $s->bindValue(':surname', $_POST['surname']);
-        $s->bindValue(':login', $_POST['login']);
-        $s->bindValue(':phone', $_POST['phone']);
-        $s->bindValue(':password', $_POST['password']);
+        $s->bindValue(':id', $_POST['id']);
+        $s->bindValue(':title', $_POST['Title']);
+        $s->bindValue(':cost', $_POST['Cost']);
+        $s->bindValue(':code', $_POST['Code']);
         $s->execute();
     }
     catch (PDOException $e) {
@@ -93,7 +83,7 @@ if (isset($_GET['editform'])) {
 }
 //Удаление
 if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
-    include $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/connect_db.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
         $sql = 'DELETE FROM service WHERE id = :id';
         $s = $pdo->prepare($sql);
@@ -109,24 +99,22 @@ if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
     exit();
 }
 //Вывод
-include $_SERVER['DOCUMENT_ROOT'].'/курсовая/server/database_connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
 try {
-//    $query = 'SELECT id, name, surname, login, phone, password FROM service';
-//    $result = $pdo->query($query);
+    $query = 'SELECT id, Title, Cost, Сode FROM service';
+    $result = $pdo->query($query);
 }
 catch (PDOException $e) {
     echo "Ошибка выполнения запроса: ".$e->getMessage();
     include 'error.php';
     exit();
 }
-//while ($row = $result->fetch()) {
-//    $prod[] = array(
-//        'id' => $row['id'],
-//        'name' => $row['name'],
-//        'surname' => $row['surname'],
-//        'login' => $row['login'],
-//        'phone' => $row['phone'],
-//        'password' => $row['password']);
-//}
+while ($row = $result->fetch()) {
+    $prod[] = array(
+        'id' => $row['id'],
+        'title' => $row['Title'],
+        'cost' => $row['Cost'],
+        'code' => $row['Сode']);
+}
 include 'service.html.php';
 ?>

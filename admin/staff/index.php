@@ -41,8 +41,8 @@ if (isset($_GET['addform'])) {
 if(isset($_POST['action']) and $_POST['action'] == 'Редактировать') {
     include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
-        $sql = 'SELECT id, Name, Surname, Patronymic, Phone, Address, Service FROM staff
-		    WHERE id = :id';
+        $sql = 'SELECT id, Name, Surname, Patronymic, Phone, Address, Experience, id_schedule, id_specialties FROM staff
+		            WHERE id = :id';
         $s = $pdo->prepare($sql);
         $s->bindValue(':id', $_POST['id']);
         $s->execute();
@@ -56,11 +56,15 @@ if(isset($_POST['action']) and $_POST['action'] == 'Редактировать')
     $pageTitle = 'Редактировать информацию.';
     $action = 'editform';
     $id = $row['id'];
-    $name = $row['name'];
-    $surname = $row['surname'];
-    $login = $row['login'];
-    $phone = $row['phone'];
-    $password = $row['password'];
+    $name = $row['Name'];
+    $surname = $row['Surname'];
+    $patronymic = $row['Patronymic'];
+    $phone = $row['Phone'];
+    $address = $row['Address'];
+    $experience = $row['Experience'];
+    $id_schedule = $row['id_schedule'];
+    $id_specialties = $row['id_specialties'];
+
     $button = 'Обновить информацию';
     include 'form.html.php';
     exit();
@@ -75,11 +79,15 @@ if (isset($_GET['editform'])) {
 		phone = :phone,
         password = :password WHERE id = :id';
         $s = $pdo->prepare($sql);
+        $s->bindValue(':id', $_POST['id']);
         $s->bindValue(':name', $_POST['name']);
         $s->bindValue(':surname', $_POST['surname']);
-        $s->bindValue(':login', $_POST['login']);
+        $s->bindValue(':patronymic', $_POST['patronymic']);
         $s->bindValue(':phone', $_POST['phone']);
-        $s->bindValue(':password', $_POST['password']);
+        $s->bindValue(':address', $_POST['address']);
+        $s->bindValue(':experience', $_POST['experience']);
+        $s->bindValue(':id_schedule', $_POST['id_schedule']);
+        $s->bindValue(':id_specialties', $_POST['id_specialties']);
         $s->execute();
     }
     catch (PDOException $e) {
@@ -124,6 +132,8 @@ while ($row = $result->fetch()) {
         'name' => $row['Name'],
         'surname' => $row['Surname'],
         'address' => $row['Address'],
+        'patronymic' => $row['Patronymic'],
+        'phone' => $row['Phone'],
         'experience' => $row['Experience'],
         'id_schedule' => $row['id_schedule'],
         'id_specialties' => $row['id_specialties'],

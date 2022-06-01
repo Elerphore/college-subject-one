@@ -24,7 +24,7 @@
                     <div class="col-xl-12">
                         <nav class="main-menu mobile-menu">
                             <ul>
-                                <li><a href="../../public/index.php">Главная</a></li>
+                                <li><a href="/admin/">Главная</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -37,25 +37,18 @@
 
 <!-- Конец заголовка -->
 
-<h1>Клиенты</h1>
+<h1>Специальности</h1>
 <div id="side_menu">
-    <p><a href="?add">Добавить клиентов</a></p>
+    <p><a href="?add">Добавить специальность</a></p>
     <table border="1" width="100%" cellpadding="5">
         <tr>
-            <td align="center">имя</td>
-            <td align="center">фамилия</td>
-            <td align="center">логин</td>
-            <td align="center">телефон</td>
-            <td align="center">пароль</td>
+            <td align="center">Code</td>
+            <td align="center">Title</td>
         </tr>
         <?php foreach($prod as $pro):  ?>
             <tr>
-                <td><?php echo htmlout($pro['name']); ?></td>
-                <td><?php echo htmlout($pro['surname']); ?></td>
-                <td><?php echo htmlout($pro['address']); ?></td>
-                <td><?php echo htmlout($pro['experience']); ?></td>
-                <td><?php echo htmlout($pro['id_schedule']); ?></td>
-                <td><?php echo htmlout($pro['id_specialties']); ?></td>
+                <td><?php echo htmlout($pro['code']); ?></td>
+                <td><?php echo htmlout($pro['title']); ?></td>
                 <td>
                     <form action="?" method="POST">
                         <div>

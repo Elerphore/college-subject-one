@@ -159,7 +159,7 @@ a.button {
 table.ceny {
     border: 1px solid   ; 
     margin: 10px 0; 
-    width: 700px;
+    width: 95vw;
 }
 
 table.ceny th {
@@ -186,4 +186,14 @@ table.ceny td {
     padding: 4px; 
     vertical-align: middle; 
     text-align: center;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+section > h2 {
+    flex-basis: 100%;
 }

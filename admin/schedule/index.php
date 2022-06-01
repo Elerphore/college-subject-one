@@ -3,30 +3,21 @@ if (isset($_GET['add'])) {
     $pageTitle = 'Клиенты ';
     $action = 'addform';
     $id = '';
-    $name = '';
-    $surname = '';
-    $login = '';
-    $phone   = '';
-    $password ='';
+    $date = '';
+    $time = '';
     $button ='Добавить';
     include 'form.html.php';
     exit();
 }
 if (isset($_GET['addform'])) {
-    include $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/connect_db.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
         $sql = 'INSERT INTO schedule SET
-		    name = :name,
-		    surname = :surname,
-		    login = :login,
-		    phone  = :phone,
-        password =:password';
+		    Date = :date,
+		    Time = :time';
         $s = $pdo-> prepare($sql);
-        $s->bindValue(':name', $_POST['name']);
-        $s->bindValue(':surname', $_POST['surname']);
-        $s->bindValue(':login', $_POST['login']);
-        $s->bindValue(':phone', $_POST['phone']);
-        $s->bindValue(':password', $_POST['password']);
+        $s->bindValue(':date', $_POST['date']);
+        $s->bindValue(':time', $_POST['time']);
         $s->execute();
     }
     catch (PDOException $e) {
@@ -39,10 +30,9 @@ if (isset($_GET['addform'])) {
 }
 //Редактирование
 if(isset($_POST['action']) and $_POST['action'] == 'Редактировать') {
-    include $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/connect_db.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
-        $sql = 'SELECT id, name, surname, login, phone, password FROM schedule
-		    WHERE id = :id';
+        $sql = 'SELECT id, Date, Time FROM schedule WHERE id = :id';
         $s = $pdo->prepare($sql);
         $s->bindValue(':id', $_POST['id']);
         $s->execute();
@@ -56,31 +46,22 @@ if(isset($_POST['action']) and $_POST['action'] == 'Редактировать')
     $pageTitle = 'Редактировать информацию.';
     $action = 'editform';
     $id = $row['id'];
-    $name = $row['name'];
-    $surname = $row['surname'];
-    $login = $row['login'];
-    $phone = $row['phone'];
-    $password = $row['password'];
+    $time = $row['Time'];
+    $date = $row['Date'];
     $button = 'Обновить информацию';
     include 'form.html.php';
     exit();
 }
 if (isset($_GET['editform'])) {
-    include $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/connect_db.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
         $sql = 'UPDATE schedule SET
-		    name = :name,
-        surname = :surname,
-		    login = :login,
-		    phone = :phone,
-        password = :password
-		    WHERE id = :id';
+		    Date = :date,
+            Time = :time WHERE id = :id';
         $s = $pdo->prepare($sql);
-        $s->bindValue(':name', $_POST['name']);
-        $s->bindValue(':surname', $_POST['surname']);
-        $s->bindValue(':login', $_POST['login']);
-        $s->bindValue(':phone', $_POST['phone']);
-        $s->bindValue(':password', $_POST['password']);
+        $s->bindValue(':id', $_POST['id']);
+        $s->bindValue(':date', $_POST['date']);
+        $s->bindValue(':time', $_POST['time']);
         $s->execute();
     }
     catch (PDOException $e) {
@@ -93,7 +74,7 @@ if (isset($_GET['editform'])) {
 }
 //Удаление
 if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
-    include $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/connect_db.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     try {
         $sql = 'DELETE FROM schedule WHERE id = :id';
         $s = $pdo->prepare($sql);
@@ -109,24 +90,21 @@ if (isset($_POST['action']) and $_POST['action'] == 'Удалить') {
     exit();
 }
 //Вывод
-include $_SERVER['DOCUMENT_ROOT'].'/курсовая/server/database_connection.php';
+include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
 try {
-//    $query = 'SELECT id, name, surname, login, phone, password FROM schedule';
-//    $result = $pdo->query($query);
+    $query = 'SELECT id, Date, Time FROM schedule';
+    $result = $pdo->query($query);
 }
 catch (PDOException $e) {
     echo "Ошибка выполнения запроса: ".$e->getMessage();
     include 'error.php';
     exit();
 }
-//while ($row = $result->fetch()) {
-//    $prod[] = array(
-//        'id' => $row['id'],
-//        'name' => $row['name'],
-//        'surname' => $row['surname'],
-//        'login' => $row['login'],
-//        'phone' => $row['phone'],
-//        'password' => $row['password']);
-//}
+while ($row = $result->fetch()) {
+    $prod[] = array(
+        'id' => $row['id'],
+        'date' => $row['Date'],
+        'time' => $row['Time']);
+}
 include 'schedule.html.php';
 ?>

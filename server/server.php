@@ -4,10 +4,6 @@ include "database_connection.php";
 
 if(isset($_POST['login'])) {
     try {
-
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-
         $sql = "SELECT * FROM client 
          WHERE Name=:name and Phone=:phone";
 
@@ -36,7 +32,7 @@ if(isset($_POST['login_adm'])) {
         $login = $_POST['login'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM client 
+        $sql = "SELECT * FROM staff 
          WHERE Name=:name and Phone=:phone";
 
         $s = $pdo-> prepare($sql);
@@ -46,9 +42,10 @@ if(isset($_POST['login_adm'])) {
         $user = $s->fetch();
 
         $_SESSION['name'] = $user['Name'];
-        $_SESSION['surname'] = $user['Surname'];
-        $_SESSION['patronymic'] = $user['patronymic'];
         $_SESSION['phone'] = $user['Phone'];
+        $_SESSION['surname'] = $user['Surname'];
+        $_SESSION['patronymic'] = $user['Patronymic'];
+        $_SESSION['experience'] = $user['Experience'];
     }
     catch (PDOException $e) {
         echo $e;

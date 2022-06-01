@@ -14,6 +14,7 @@ if(isset($_GET['logout'])) {
 	<link rel="stylesheet" type="text/css" href="assets/style/index.css">
 	<title></title>
     <script src="https://unpkg.com/vue@3"></script>
+    <link href="/assets/style/bootstrap-min.css" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -38,4 +39,5 @@ if(isset($_GET['logout'])) {
 	<div class="fam">ИСП-19-2 Аблюзина Лилия</div>
 </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </html>

@@ -1,4 +1,4 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/helpers.inc.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'].'/admin/helpers.inc.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,7 @@
                     <div class="col-xl-12">
                         <nav class="main-menu mobile-menu">
                             <ul>
-                                <li><a href="../../public/index.php">Главная</a></li>
+                                <li><a href="/admin/">Главная</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -36,11 +36,12 @@
 <div id="side_menu">
     <h1><?php htmlout($pageTitle); ?></h1>
     <form action="?<?php htmlout($action); ?>" method="POST">
-        <div><label for="name"> Имя: <input type="text" name="name" value="<?php htmlout($name); ?>"></label></div>
-        <div><label for="surname">Фамилия: <input type="text" name="surname" value="<?php htmlout($surname); ?>"></label></div>
-        <div><label for="login">Логин: <input type="text" name="login" value="<?php htmlout($login); ?>"></label></div>
-        <div><label for="phone">Телефон: <input type="text" name="phone" value="<?php htmlout($phone); ?>"></label></div>
-        <div><label for="password">Пароль: <input type="text" name="password" value="<?php htmlout($password); ?>"></label></div>
+        <div><label for="code"> Code: <input type="text" name="code" value="<?php htmlout($code); ?>"></label></div>
+        <div><label for="date">Date: <input type="text" name="date" value="<?php htmlout($date); ?>"></label></div>
+        <div><label for="time">Date: <input type="text" name="time" value="<?php htmlout($time); ?>"></label></div>
+        <div><label for="id_staff">Time: <input type="text" name="id_staff" value="<?php htmlout($id_staff); ?>"></label></div>
+        <div><label for="id_service">id_staff: <input type="text" name="id_service" value="<?php htmlout($id_service); ?>"></label></div>
+        <div><label for="id_client">id_client: <input type="text" name="id_client" value="<?php htmlout($id_client); ?>"></label></div>
         <br>
         <div>
             <input type="hidden" name="id" value="<?php htmlout($id);?>">

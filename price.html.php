@@ -6,67 +6,36 @@
 	<title></title>
 </head>
 <body>
-	<header>
-        <?php include "./components/title_bar.php"?>
-	<section>
-	<h2>Маникюр</h2>
-<table class="ceny">
- <tbody><tr>
-    <th>Услуга</th>
-    <th>Цена</th>
- </tr>
- <tr>
-    <td>Классический маникюр</td>
-    <td>1000-1200</td>
- </tr>
- <tr>
-    <td>Маникюр аппаратный</td>
-    <td>700-900</td>
- </tr>
-  <tr>
-    <td>Покрытие гель-лак</td>
-    <td>1000-1700</td>
- </tr>
-</tbody></table>
-<h2>Прически</h2>
-<table class="ceny">
- <tbody><tr>
-    <th>Услуга</th>
-    <th>Цена</th>
- </tr>
- <tr>
-    <td>Брашинг</td>
-    <td>800-1000</td>
- </tr>
- <tr>
-    <td>Укладка локоны</td>
-    <td>1200-1400</td>
- </tr>
-  <tr>
-    <td>Прически</td>
-    <td>1400-1700</td>
- </tr>
-</tbody></table>
-<h2>Макияж</h2>
-<table class="ceny">
- <tbody><tr>
-    <th>Услуга</th>
-    <th>Цена</th>
- </tr>
- <tr>
-    <td>Дневной макияж</td>
-    <td>1200-1450</td>
- </tr>
- <tr>
-    <td>Вечерний макияж</td>
-    <td>1400-1700</td>
- </tr>
-  <tr>
-    <td>Свадебный макияж</td>
-    <td>1700-2000</td>
- </tr>
-</tbody></table>
+<header><?php include "./components/title_bar.php"?></header>
+<section>
+    <?php
+    include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/admin/helpers.inc.php';
+
+    $query = 'SELECT id, Title, Cost, Сode FROM service';
+    $result = $pdo->query($query);
+    while ($row = $result->fetch()) {
+        $prod[] = array(
+            'title' => $row['Title'],
+            'cost' => $row['Cost']);
+    }
+    ?>
+    <h2>Услуги</h2>
+    <table border="1" width="100%" cellpadding="5" class="ceny">
+        <tbody>
+        <tr>
+            <th align="center">Услуга</th>
+            <th align="center">Цена</th>
+        </tr>
+
+        <?php foreach($prod as $pro):  ?>
+            <tr>
+                <td><?php echo htmlout($pro['title']); ?></td>
+                <td><?php echo htmlout($pro['cost']); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
 </section>
-</header>
 </body>
 </html>

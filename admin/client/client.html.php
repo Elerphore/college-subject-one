@@ -1,4 +1,4 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/курсовая/includes/helpers.inc.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'].'/admin/helpers.inc.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +24,7 @@
                     <div class="col-xl-12">
                         <nav class="main-menu mobile-menu">
                             <ul>
-                                <li><a href="../../public/index.php">Главная</a></li>
+                                <li><a href="/admin/">Главная</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -42,19 +42,21 @@
     <p><a href="?add">Добавить клиентов</a></p>
     <table border="1" width="100%" cellpadding="5">
         <tr>
-            <td align="center">имя</td>
-            <td align="center">фамилия</td>
-            <td align="center">логин</td>
-            <td align="center">телефон</td>
-            <td align="center">пароль</td>
+            <td align="center">name</td>
+            <td align="center">surname</td>
+            <td align="center">patronymic</td>
+            <td align="center">phone</td>
+            <td align="center">address</td>
+            <td align="center">service</td>
         </tr>
         <?php foreach($prod as $pro):  ?>
             <tr>
                 <td><?php echo htmlout($pro['name']); ?></td>
                 <td><?php echo htmlout($pro['surname']); ?></td>
-                <td><?php echo htmlout($pro['login']); ?></td>
+                <td><?php echo htmlout($pro['patronymic']); ?></td>
                 <td><?php echo htmlout($pro['phone']); ?></td>
-                <td><?php echo htmlout($pro['password']); ?></td>
+                <td><?php echo htmlout($pro['address']); ?></td>
+                <td><?php echo htmlout($pro['service']); ?></td>
                 <td>
                     <form action="?" method="POST">
                         <div>

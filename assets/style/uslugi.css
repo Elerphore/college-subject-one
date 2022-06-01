@@ -186,3 +186,68 @@ a.button {
     margin-left: 1200px;
     margin-top: -50px;
 }
+
+.information {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-basis: 70%;
+}
+
+.manicure {
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.manicure > h1 {
+    flex-basis: 100%;
+}
+
+.manicure-grid {
+    flex-basis: auto;
+    justify-content: center;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.gallery {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.gallery > h1 {
+    flex-basis: 100%;
+    margin-bottom: 5%;
+}
+
+.main-block {
+    display: flex;
+}
+
+.side-bar {
+    flex-basis: 20%;
+    padding: 2em;
+}
+.main-grid {
+    flex-basis: auto;
+    justify-self: center;
+    display: grid;
+    gap: 15px 50%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.float-btn {
+    position: fixed;
+    bottom: 1rem;
+    left: 90%;
+}
+.side-bar-content {
+    border: 2px blue solid;
+    border-radius: .5em;
+}
