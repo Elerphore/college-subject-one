@@ -8,4 +8,6 @@ insert into schedule(Date, Time) values("2022-05-19", "15:50");
 insert into client(Surname, Name, Patronymic, Phone, Address, Service, Experience, id_schedule, id_specialties) values ("Щербакова", "Айлин", "Никитична", 79321 , "Октябрьская 3", "Причёски", 10, 1, 1);
 insert into client(Surname, Name, Patronymic, Phone, Address, Service, Experience, id_schedule, id_specialties) values ("Сафонов", "Марк", "Глебович", 79321 , "Октябрьская 3", "Педикюр", 10, 2, 2);
 insert into client(Surname, Name, Patronymic, Phone, Address, Service, Experience, id_schedule, id_specialties) values ("Антонина", "Ксения", "Игоревна", 79321 , "Октябрьская 3", "Маникюр", 10, 1, 3);
-
+insert into service(Title, Cost, Сode) values ("Маникюр", 100, 1);
+insert into service(Title, Cost, Сode) values ("Педикюр", 150, 2);
+insert into service(Title, Cost, Сode) values ("Стрижка", 200, 3);
