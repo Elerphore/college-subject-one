@@ -7,7 +7,7 @@
 </head>
 <body>
 <header><?php include "./components/title_bar.php"?></header>
-<section class="mt-3">
+<section class="mt-5 container">
     <?php
     include $_SERVER['DOCUMENT_ROOT'].'/server/database_connection.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/admin/helpers.inc.php';
@@ -21,7 +21,7 @@
     }
     ?>
     <h2>Услуги</h2>
-    <table border="1" width="100%" cellpadding="5" class="ceny">
+    <table border="1" width="100%" cellpadding="5" class="table table-striped">
         <tbody>
         <tr>
             <th align="center">Услуга</th>

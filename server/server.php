@@ -13,6 +13,7 @@ if(isset($_POST['login'])) {
         $s->execute();
         $user = $s->fetch();
 
+        $_SESSION['id'] = $user['id'];
         $_SESSION['name'] = $user['Name'];
         $_SESSION['surname'] = $user['Surname'];
         $_SESSION['patronymic'] = $user['patronymic'];
@@ -41,6 +42,7 @@ if(isset($_POST['login_adm'])) {
         $s->execute();
         $user = $s->fetch();
 
+        $_SESSION['id'] = $user['id'];
         $_SESSION['name'] = $user['Name'];
         $_SESSION['phone'] = $user['Phone'];
         $_SESSION['surname'] = $user['Surname'];

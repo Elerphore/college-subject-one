@@ -5,6 +5,7 @@ if(isset($_GET['logout'])) {
     unset($_SESSION['name']);
     unset($_SESSION['phone']);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -14,30 +15,31 @@ if(isset($_GET['logout'])) {
 	<link rel="stylesheet" type="text/css" href="assets/style/index.css">
 	<title></title>
     <script src="https://unpkg.com/vue@3"></script>
-    <link href="/assets/style/bootstrap-min.css" rel="stylesheet">
 </head>
 <body>
-	<header>
-        <?php include "./components/title_bar.php"?>
-<div class="header mt-3">
-  <div class="info">
-  <h3><a href="#category">В честь открытия салон красоты «Paradise» дарит первым 20 клиентам скидки!.</a></h3>
-    <h1>ДОБРО ПОЖАЛОВАТЬ В PARADISE!</h1>	
-  </div>
-</div>
-<section class="content">
-<p> У нас в салоне вы можете получить услуги маникюра: консультацию, маникюр на ваш вкус и цвет, самые разные виды маникюра. Визажист предлагает свадебный, вечерний макияж, креативный макияж. У нас в салоне имеется стилист, который сделает вам стрижку, окрашивание, укладку, плетение, свадебную прическу.</p>
-<p>Подпишитесь на наши рассылки и вы будете всегда в курсе новых событий и скидок!</p>
-  <p align="center"><a href="https://web.telegram.org/z/" class="btn telegram" target="_b">Follow me on Telegram</a></p>
-  	<p align="center"><a href="https://vk.com/" class="btn vk" target="_b">Follow me on Vk</a></p>
-</section>
-</header>
-<footer>
-	<div class="kurs">
-		Курсовой проект.
-	</div>
-	<div class="fam">ИСП-19-2 Аблюзина Лилия</div>
-</footer>
+<header><?php include "./components/title_bar.php"?></header>
+	<div class="main-block">
+        <div class="header mb-5">
+            <div class="header">
+                <div>
+                    <p><a href="#category">В честь открытия салон красоты «Paradise» дарит первым 20 клиентам скидки!.</a></p>
+                    <p>ДОБРО ПОЖАЛОВАТЬ В PARADISE!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-text container">
+            <p> У нас в салоне вы можете получить услуги маникюра: консультацию, маникюр на ваш вкус и цвет, самые разные виды маникюра. Визажист предлагает свадебный, вечерний макияж, креативный макияж. У нас в салоне имеется стилист, который сделает вам стрижку, окрашивание, укладку, плетение, свадебную прическу.</p>
+            <p>Подпишитесь на наши рассылки и вы будете всегда в курсе новых событий и скидок!</p>
+            <p align="center"><a href="https://web.telegram.org/z/" target="_b">Follow me on Telegram</a></p>
+            <p align="center"><a href="https://vk.com/" target="_b">Follow me on Vk</a></p>
+        </div>
+
+        <footer>
+            <p class="mt-2">Курсовой проект.</p>
+            <p class="mt-1">ИСП-19-2 Аблюзина Лилия</p>
+        </footer>
+    </div>
 </body>
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </html>
